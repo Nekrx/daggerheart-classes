@@ -1,7 +1,6 @@
 import React from 'react';
 
 export function PairCard({ pair, isDragging }) {
-  // Define a cor de fundo: usa a regra fixa ou o cinza padrão
   const bgColor = pair.defaultColor || '#151515';
   
   return (

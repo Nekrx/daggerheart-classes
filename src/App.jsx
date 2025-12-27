@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { DndContext, closestCenter, PointerSensor, useSensor, useSensors, DragOverlay } from '@dnd-kit/core';
 import { SortableContext, rectSortingStrategy } from '@dnd-kit/sortable';
 import { useWordForge } from './hooks/useWordForge';
-import { SortablePair } from './components/SortablePair'; // Nome correto aqui
+import { SortablePair } from './components/SortablePair'; 
 import { PairCard } from './components/PairCard';
 import './App.css';
 
@@ -55,7 +55,6 @@ export default function App() {
         <SortableContext items={pairs.map(p => p.id)} strategy={rectSortingStrategy}>
           <div className="forge-grid">
             {pairs.map(pair => (
-              /* MUDADO DE SortableItem PARA SortablePair */
               <SortablePair key={pair.id} pair={pair} />
             ))}
           </div>

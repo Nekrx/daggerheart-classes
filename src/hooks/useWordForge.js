@@ -6,14 +6,12 @@ export const useWordForge = () => {
   const [words, setWords] = useState(INITIAL_WORDS);
   const [pairs, setPairs] = useState([]);
 
-  // Busca a cor normalizando a chave (alfabética + minúscula)
   const getPairColor = useCallback((wordA, wordB) => {
     const key = [wordA.trim(), wordB.trim()].sort().join("-").toLowerCase();
     const foundKey = Object.keys(COLOR_RULES).find(k => k.toLowerCase() === key);
     return foundKey ? COLOR_RULES[foundKey] : null;
   }, []);
 
-  // Gera duplas sempre que as palavras mudam
   useEffect(() => {
     const newPairs = [];
     for (let i = 0; i < words.length; i++) {
