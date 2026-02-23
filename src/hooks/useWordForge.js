@@ -12,22 +12,39 @@ export const useWordForge = () => {
     return foundKey ? COLOR_RULES[foundKey] : null;
   }, []);
 
-  useEffect(() => {
-    const newPairs = [];
-    for (let i = 0; i < words.length; i++) {
-      for (let j = i + 1; j < words.length; j++) {
-        const w1 = words[i];
-        const w2 = words[j];
-        newPairs.push({
-          id: `pair-${w1}-${w2}`,
-          first: w1,
-          second: w2,
-          defaultColor: getPairColor(w1, w2)
-        });
-      }
+  // src/hooks/useWordForge.js
+
+useEffect(() => {
+  const newPairs = [];
+  
+  // 1. Gera todas as combinações possíveis
+  for (let i = 0; i < words.length; i++) {
+    for (let j = i + 1; j < words.length; j++) {
+      const w1 = words[i];
+      const w2 = words[j];
+      const color = getPairColor(w1, w2);
+      
+      newPairs.push({
+        id: `pair-${w1}-${w2}`,
+        first: w1,
+        second: w2,
+        defaultColor: color
+      });
     }
-    setPairs(newPairs);
-  }, [words, getPairColor]);
+  }
+
+  // 2. ORDENAÇÃO: Coloca quem tem cor no topo
+  const sortedPairs = newPairs.sort((a, b) => {
+    // Se 'a' tem cor e 'b' não, 'a' sobe
+    if (a.defaultColor && !b.defaultColor) return -1;
+    // Se 'b' tem cor e 'a' não, 'b' sobe
+    if (!a.defaultColor && b.defaultColor) return 1;
+    // Se ambos tiverem cor (ou ambos não tiverem), mantém a ordem alfabética
+    return a.id.localeCompare(b.id);
+  });
+
+  setPairs(sortedPairs);
+}, [words, getPairColor]);
 
   const updateWord = useCallback((index, value) => {
     setWords(prev => {
