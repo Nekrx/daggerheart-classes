@@ -126,3 +126,321 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.8), 0 0 5px rgba(255, 255, 255, 0.05);
   border-left: 5px solid rgba(255, 255, 255, 0.2) !important;
 }
+
+.card-link-wrapper {
+  display: block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card-link-wrapper:hover {
+  transform: scale(1.02); /* Pequeno zoom ao passar o mouse */
+}
+
+.pair-card.is-dragging {
+  cursor: grabbing;
+  opacity: 0.8;
+  transform: scale(1.1);
+  z-index: 999;
+}
+
+/* Container que centraliza o pergaminho/moldura */
+.details-page {
+  min-height: 100vh;
+  background-color: #050505;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+/* O Botão de Voltar - Minimalista e funcional */
+.btn-return {
+  background: none;
+  border: 2px solid #222;
+  color: #444;
+  padding: 10px 20px;
+  margin-bottom: 40px;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Georgia', serif;
+  transition: 0.3s;
+}
+
+.btn-return:hover {
+  border-color: #b20000;
+  color: #fff;
+}
+
+/* Moldura Principal - Segue o padrão de bordas e sombras da Forja */
+.thematic-frame {
+  width: 100%;
+  max-width: 700px;
+  background: #0a0a0a;
+  border: 4px solid #1a1a1a;
+  padding: 60px 40px;
+  /* Sombra sólida de 15px para combinar com os cards da main */
+  box-shadow: 15px 15px 0px #000;
+  text-align: center;
+}
+
+/* Título da Combinação */
+.thematic-title {
+  font-family: 'Georgia', serif;
+  font-size: 3rem;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  margin: 0;
+  text-shadow: 3px 3px 0px #b20000;
+}
+
+/* Divisor simples que lembra um traço de tinta */
+.ink-divider {
+  height: 3px;
+  background: #b20000;
+  width: 80px;
+  margin: 30px auto;
+}
+
+/* Área de texto para o seu conteúdo */
+.info-body {
+  color: #999;
+  font-family: 'Georgia', serif;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.info-body strong {
+  color: #fff;
+}
+
+/* Container do Portfólio */
+.portfolio-page {
+  min-height: 100vh;
+  background-color: #050505;
+  padding: 40px;
+  color: white;
+}
+
+.portfolio-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.portfolio-subtitle {
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+}
+
+/* Grid de Cartas */
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* A Carta Individual */
+.domain-card-art {
+  background: #0a0a0a;
+  border: 2px solid #1a1a1a;
+  padding: 10px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 10px 10px 0px #000;
+}
+
+.domain-card-art:hover {
+  transform: translateY(-10px) rotate(2deg);
+  border-color: #b20000;
+  box-shadow: 15px 15px 0px #b20000;
+}
+
+.card-inner-border {
+  border: 1px solid #222;
+  height: 100%;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Moldura da Imagem */
+.domain-image-placeholder {
+  width: 100%;
+  height: 300px;
+  background: #000;
+  border: 1px solid #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.ink-icon {
+  font-size: 3rem;
+  color: #1a1a1a;
+}
+
+.domain-name {
+  font-family: 'Georgia', serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 2px;
+}
+
+.domain-type {
+  font-size: 0.7rem;
+  color: #b20000;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-top: 10px;
+}
+
+.ink-divider-small {
+  height: 2px;
+  background: #1a1a1a;
+  width: 40px;
+  margin: 10px 0;
+}
+/* Centralização do Header */
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza tudo horizontalmente */
+  padding: 50px 0 20px 0;
+  text-align: center;
+}
+
+/* Novo Estilo do Botão */
+.btn-nav-portfolio {
+  background: #000;
+  color: #d4af37; /* Tom dourado envelhecido */
+  border: 1px solid #d4af37;
+  padding: 12px 30px;
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  margin: 20px 0;
+  position: relative;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.2);
+}
+
+.btn-nav-portfolio:hover {
+  background: #d4af37;
+  color: #000;
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn-nav-portfolio::before {
+  content: '✦';
+  margin-right: 10px;
+}
+
+.btn-nav-portfolio::after {
+  content: '✦';
+  margin-left: 10px;
+}
+
+/* Garante que o grid ocupe o espaço correto agora que o topo sumiu */
+.forge-grid {
+  margin-top: 20px;
+}
+
+/* Container dos botões para centralização */
+.nav-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin: 20px 0;
+  max-width: 800px;
+}
+
+/* Estilo geral dos botões de navegação */
+.btn-nav-main {
+  background: #000;
+  color: #d4af37; /* Dourado envelhecido */
+  border: 1px solid #d4af37;
+  padding: 10px 20px;
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 160px;
+}
+
+.btn-nav-main:hover {
+  background: #d4af37;
+  color: #000;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Ajuste no título para não ficar colado */
+.main-title {
+  margin-bottom: 10px;
+}
+
+
+/* Container do Header */
+.game-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px 20px;
+}
+
+/* Menu de Navegação */
+.main-nav {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap; /* Para funcionar bem em ecrãs pequenos */
+  justify-content: center;
+  margin: 30px 0;
+}
+
+/* Estilo dos Botões */
+.btn-menu {
+  background: #000;
+  color: #d4af37; /* Dourado envelhecido */
+  border: 1px solid #d4af37;
+  padding: 12px 24px;
+  font-family: 'Georgia', serif;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  min-width: 180px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.1);
+}
+
+.btn-menu:hover {
+  background: #d4af37;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
+}
+
+/* Título */
+.main-title {
+  font-size: 3.5rem;
+  letter-spacing: 12px;
+  margin: 0;
+  text-shadow: 4px 4px 0px #000;
+}
+
+
