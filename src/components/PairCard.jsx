@@ -2,10 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export function PairCard({ pair, isDragging }) {
-  // Define a cor de fundo (usa a cor da regra ou o cinza padrão)
   const bgColor = pair.defaultColor || '#151515';
-  
-  // Criamos o ID da URL de forma organizada (ex: "Blade-Bone")
   const pairPath = [pair.first, pair.second].sort().join("-");
 
   return (
@@ -13,7 +10,6 @@ export function PairCard({ pair, isDragging }) {
       to={`/details/${pairPath}`} 
       className="card-link-wrapper"
       style={{ textDecoration: 'none', color: 'inherit' }}
-      // O SEGREDO: Se estiver arrastando, impedimos a navegação
       onClick={(e) => isDragging && e.preventDefault()}
     >
       <div 

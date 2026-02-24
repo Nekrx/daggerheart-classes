@@ -1,8 +1,6 @@
-// src/components/ComingSoonPage.jsx
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
-// Use exatamente assim: export function
 export function ComingSoonPage({ title }) {
   const navigate = useNavigate();
   return (

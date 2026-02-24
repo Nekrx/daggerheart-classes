@@ -13,11 +13,8 @@ export const useWordForge = () => {
   useEffect(() => {
     localStorage.setItem('forge-words', JSON.stringify(words));
   }, [words]);
-
-  // Função de busca de cor com normalização (ignora espaços e case)
   const getPairColor = useCallback((wordA, wordB) => {
     const key = [wordA.trim(), wordB.trim()].sort().join("-");
-    // Tenta encontrar a cor exata ou retorna null
     return COLOR_RULES[key] || null;
   }, []);
 
@@ -43,13 +40,13 @@ export const useWordForge = () => {
       const hasColorA = a.defaultColor !== null;
       const hasColorB = b.defaultColor !== null;
 
-      if (hasColorA && !hasColorB) return -1; // 'a' tem cor, sobe
-      if (!hasColorA && hasColorB) return 1;  // 'b' tem cor, sobe
-      return 0; // Ambos são iguais, mantém a ordem
+      if (hasColorA && !hasColorB) return -1; 
+      if (!hasColorA && hasColorB) return 1; 
+      return 0; 
     });
   }, [words, getPairColor]);
 
-  // Sincroniza o estado sempre que os pares gerados mudarem
+
   useEffect(() => {
     setPairs(generatedPairs);
   }, [generatedPairs]);

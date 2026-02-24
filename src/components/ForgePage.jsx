@@ -9,7 +9,6 @@ import { PairCard } from './PairCard';
 import '../App.css';
 
 export default function ForgePage() { 
-  // Removido 'words' e 'updateWord' pois os inputs não aparecem mais aqui
   const { pairs, reorderPairs } = useWordForge();
   const [activeId, setActiveId] = useState(null);
   const navigate = useNavigate();
@@ -35,7 +34,6 @@ export default function ForgePage() {
       <header className="game-header">
         <h1 className="main-title">Domínios Daggerheart</h1>
         
-        {/* Grupo de botões de categorias centralizado */}
         <nav className="main-nav">
           <button className="btn-menu" onClick={() => navigate('/portfolio')}>
             Domínios
@@ -53,8 +51,6 @@ export default function ForgePage() {
 
         <div className="ornament-divider" />
       </header>
-
-      {/* A área 'editor-panel' foi removida completamente daqui */}
 
       <DndContext 
         sensors={sensors} 
